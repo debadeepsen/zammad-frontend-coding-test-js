@@ -19,7 +19,7 @@
               >{{ showInfo.officialSite }}</a
             >
           </div>
-          <div v-if="showInfo?.genres" class="mt-4">
+          <div v-if="showInfo?.genres" class="mt-4 flex flex-wrap">
             <span
               v-for="(g, i) in showInfo.genres"
               v-bind:key="i"
