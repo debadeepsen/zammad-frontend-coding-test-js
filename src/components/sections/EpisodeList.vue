@@ -7,10 +7,12 @@
           v-for="episode in episodeList"
           v-bind:episode="episode"
           v-bind:key="episode.id"
+          v-on:showdetails="showId => console.log(showId)"
         />
       </div>
     </div>
     <div v-else>Loading...</div>
+    <Modal v-bind:show="false"> Hello </Modal>
   </div>
 </template>
 
@@ -19,6 +21,7 @@ import { onMounted, ref } from 'vue'
 import { getData } from '../../lib/fetchUtils'
 import { SCHEDULE } from '../../lib/endPoints'
 import EpisodeInfo from './EpisodeInfo.vue'
+import Modal from '../utility/Modal.vue'
 
 const episodeList = ref(null)
 

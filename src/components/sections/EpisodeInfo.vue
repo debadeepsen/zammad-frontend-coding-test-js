@@ -1,7 +1,7 @@
 <template>
   <div
     v-bind:key="episode.id"
-    class="m-1 w-full md:w-[48%] lg:w-[32%] flex flex-col lg:flex-row border bg-white rounded-md shadow-md"
+    class="m-1 w-full md:w-[48%] lg:w-[49%] xl:w-[32%] flex flex-col lg:flex-row border bg-white rounded-md shadow-md"
   >
     <div class="flex justify-center lg:justify-left">
       <img
@@ -19,14 +19,26 @@
         </div>
       </div>
       <div class="text-right">
-        <button class="w-full lg:w-1/2 lg:max-w-[100px] mt-4 lg:mt-0 p-3 lg:p-1 border border-teal-600/50 rounded-md text-sm text-teal-600 bg-teal-300/10 hover:bg-teal-300/30 transition-all">Details...</button>
+        <button
+          class="w-full lg:w-1/2 lg:max-w-[100px] mt-4 lg:mt-0 p-3 lg:p-1 border border-teal-600/20 lg:rounded-full text-sm text-teal-600 bg-teal-300/10 hover:bg-teal-300/30 transition-all"
+          v-on:click="() => setCurrentShow(episode.show.id)"
+        >
+          Details...
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useMainStore } from '../../store/mainStore'
 defineProps(['episode'])
+
+const store = useMainStore()
+
+const setCurrentShow = (id) => {
+  store.currentShowId = id
+}
 </script>
 
 <style scoped>
