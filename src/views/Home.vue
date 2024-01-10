@@ -1,7 +1,12 @@
 <template>
   <div class="w-full">
-    <button class="my-6" v-on:click="toggleDetails">Show Exercise Instructions</button>
-    <div v-show="showDetails" class="justify-center max-w-md mt-10 mx-auto py-4">
+    <button class="my-6" v-on:click="toggleDetails">
+      {{ showDetails ? 'Hide' : 'Show' }} Exercise Instructions
+    </button>
+    <div
+      v-show="showDetails"
+      class="justify-center max-w-md mt-10 mx-auto py-4"
+    >
       <h1 class="font-extrabold tracking-tigh text-3xl leading-10">
         Ready for the challenge?
       </h1>
