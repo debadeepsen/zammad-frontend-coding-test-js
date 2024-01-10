@@ -7,12 +7,19 @@
           v-for="episode in episodeList"
           v-bind:episode="episode"
           v-bind:key="episode.id"
-          v-on:showdetails="showId => console.log(showId)"
+          v-on:showdetails="(showId) => console.log(showId)"
         />
       </div>
     </div>
-    <div v-else>Loading...</div>
-    <Modal v-bind:show="false"> Hello </Modal>
+    <div v-else>
+      <Loading />
+    </div>
+    <Modal
+      v-bind:show="store.currentShowId !== null"
+      v-on:close="clearCurrentShow"
+    >
+      <ShowInfo />
+    </Modal>
   </div>
 </template>
 
@@ -22,8 +29,16 @@ import { getData } from '../../lib/fetchUtils'
 import { SCHEDULE } from '../../lib/endPoints'
 import EpisodeInfo from './EpisodeInfo.vue'
 import Modal from '../utility/Modal.vue'
+import { useMainStore } from '../../store/mainStore'
+import ShowInfo from './ShowInfo.vue'
+import Loading from '../utility/Loading.vue'
 
+const store = useMainStore()
 const episodeList = ref(null)
+
+const clearCurrentShow = () => {
+  store.currentShowId = null
+}
 
 onMounted(async () => {
   try {
