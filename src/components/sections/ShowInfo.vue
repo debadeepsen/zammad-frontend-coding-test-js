@@ -4,15 +4,20 @@
       <div class="flex flex-col lg:flex-row">
         <div class="flex justify-center lg:justify-left">
           <img
-            class="mt-4 lg:mt-0 h-[360px] min-w-[240px] object-cover rounded-full lg:rounded-l-md lg:rounded-r-none"
+            class="mt-4 lg:mt-0 h-[360px] min-w-[240px] object-cover rounded-md"
             alt="poster"
             v-bind:src="showInfo.image.medium"
           />
         </div>
-        <div class="text-center lg:text-left p-4">
+        <div class="text-center lg:text-left p-4 box-border">
           <h2 class="text-2xl">{{ showInfo.name }}</h2>
           <div class="mt-2">
-            <a target="_blank" v-bind:href="showInfo.officialSite" class="text-sky-600">{{ showInfo.officialSite }}</a>
+            <a
+              target="_blank"
+              v-bind:href="showInfo.officialSite"
+              class="text-sky-600"
+              >{{ showInfo.officialSite }}</a
+            >
           </div>
           <div v-if="showInfo?.genres" class="mt-4">
             <span
@@ -22,7 +27,16 @@
               >{{ g }}</span
             >
           </div>
-          <div class="mt-4" v-html="showInfo.summary">
+          <div class="mt-4" v-html="showInfo.summary"></div>
+          <div class="mt-4 text-xs text-zinc-500" v-if="showInfo.premiered">
+            Premiered
+            {{
+              new Date(showInfo?.premiered).toLocaleDateString('en-GB', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })
+            }}
           </div>
         </div>
       </div>
@@ -44,9 +58,7 @@ const { currentShowId } = storeToRefs(store)
 
 const showInfo = ref(null)
 
-watch(currentShowId, async (curr, _old) => {
-  console.log({ curr, _old })
-
+watch(currentShowId, async (curr) => {
   if (curr === null) {
     showInfo.value = null
     return

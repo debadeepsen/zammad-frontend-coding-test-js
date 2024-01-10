@@ -7,7 +7,6 @@
           v-for="episode in episodeList"
           v-bind:episode="episode"
           v-bind:key="episode.id"
-          v-on:showdetails="(showId) => console.log(showId)"
         />
       </div>
     </div>
