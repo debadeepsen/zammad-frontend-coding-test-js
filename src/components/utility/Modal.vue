@@ -9,7 +9,7 @@
       v-on:click.stop=""
     >
       <button
-        class="absolute top-[6px] right-[6px] text-3xl w-8 h-8 bg-zinc-200 hover:bg-zinc-300 rounded-full flex justify-center items-center pb-2"
+        class="absolute top-[6px] right-[6px] text-3xl w-8 h-8 bg-zinc-200/50 hover:bg-zinc-300/70 rounded-full flex justify-center items-center pb-2"
         v-on:click="() => $emit('close')"
         title="Close this dialog"
       >
