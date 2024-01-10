@@ -4,13 +4,16 @@
       <div class="flex flex-col lg:flex-row">
         <div class="flex justify-center lg:justify-left">
           <img
-            class="mt-4 lg:mt-0 h-[360px] w-[240px] object-cover rounded-full lg:rounded-l-md lg:rounded-r-none"
+            class="mt-4 lg:mt-0 h-[360px] min-w-[240px] object-cover rounded-full lg:rounded-l-md lg:rounded-r-none"
             alt="poster"
             v-bind:src="showInfo.image.medium"
           />
         </div>
         <div class="text-center lg:text-left p-4">
           <h2 class="text-2xl">{{ showInfo.name }}</h2>
+          <div class="mt-2">
+            <a target="_blank" v-bind:href="showInfo.officialSite" class="text-sky-600">{{ showInfo.officialSite }}</a>
+          </div>
           <div v-if="showInfo?.genres" class="mt-4">
             <span
               v-for="(g, i) in showInfo.genres"
@@ -18,6 +21,8 @@
               class="bg-zinc-200/50 py-2 px-4 rounded-full mr-1"
               >{{ g }}</span
             >
+          </div>
+          <div class="mt-4" v-html="showInfo.summary">
           </div>
         </div>
       </div>
