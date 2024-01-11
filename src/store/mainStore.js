@@ -4,6 +4,7 @@ import { ref } from 'vue'
 
 export const useMainStore = defineStore('main', () => {
   const currentShowId = ref(null)
+  const toastMessage = ref(null)
 
-  return { currentShowId }
+  return { currentShowId, toastMessage }
 })

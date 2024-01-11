@@ -15,7 +15,7 @@
       >
         &times;
       </button>
-      <div class="mt-4"><slot /></div>
+      <div><slot /></div>
     </div>
   </div>
 </template>
