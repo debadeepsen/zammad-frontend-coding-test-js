@@ -64,8 +64,18 @@ watch(currentShowId, async (curr) => {
     return
   }
 
-  const data = await getData(`${SHOW_DETAILS}${curr}`)
-  showInfo.value = data
-  store.toastMessage = 'Show information fetched successfully'
+  try {
+    const data = await getData(`${SHOW_DETAILS}${curr}`)
+    showInfo.value = data
+    store.toastMessage = {
+      type: 'success',
+      text: 'Show information fetched successfully',
+    }
+  } catch (e) {
+    store.toastMessage = {
+      type: 'error',
+      text: 'Error trying to fetch show information',
+    }
+  }
 })
 </script>

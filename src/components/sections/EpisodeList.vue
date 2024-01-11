@@ -45,9 +45,16 @@ onMounted(async () => {
   try {
     const data = await getData(SCHEDULE)
     episodeList.value = data
-    store.toastMessage = 'Schedule fetched successfully'
+    store.toastMessage = {
+      type: 'success',
+      text: 'Schedule fetched successfully',
+    }
   } catch (e) {
     console.error(e)
+    store.toastMessage = {
+      type: 'error',
+      text: 'Error trying to fetch schedule',
+    }
   }
 })
 </script>
