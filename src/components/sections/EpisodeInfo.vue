@@ -32,6 +32,7 @@
 
 <script setup>
 import { useMainStore } from '../../store/mainStore'
+
 defineProps(['episode'])
 
 const store = useMainStore()

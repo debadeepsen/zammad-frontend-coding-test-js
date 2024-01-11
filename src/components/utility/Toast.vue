@@ -1,10 +1,12 @@
 <template>
-  <Transition>
-    <div
-      v-show="toastMessage !== null"
-      class="fixed top-[20px] w-fit mx-auto p-4 bg-green-200 text-green-700 shadow-lg"
-    >
-      {{ toastMessage }}
+  <Transition name="fade">
+    <div class="fixed top-[10px] w-full z-[100]">
+      <div
+        v-show="toastMessage !== null"
+        class="w-fit mx-auto p-4 bg-green-200 text-green-700 shadow-lg rounded-lg"
+      >
+        {{ toastMessage }}
+      </div>
     </div>
   </Transition>
 </template>
@@ -19,6 +21,7 @@ const { toastMessage } = storeToRefs(store)
 
 watch(toastMessage, (curr) => {
   if (curr) {
+    console.log(`curr is ${curr}`)
     setTimeout(() => {
       store.toastMessage = null
     }, 3000)

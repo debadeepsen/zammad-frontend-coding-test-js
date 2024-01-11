@@ -66,5 +66,6 @@ watch(currentShowId, async (curr) => {
 
   const data = await getData(`${SHOW_DETAILS}${curr}`)
   showInfo.value = data
+  store.toastMessage = 'Show information fetched successfully'
 })
 </script>

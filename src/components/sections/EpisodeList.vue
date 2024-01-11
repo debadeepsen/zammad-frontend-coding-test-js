@@ -19,6 +19,7 @@
     >
       <ShowInfo />
     </Modal>
+    <Toast />
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import Modal from '../utility/Modal.vue'
 import { useMainStore } from '../../store/mainStore'
 import ShowInfo from './ShowInfo.vue'
 import Loading from '../utility/Loading.vue'
+import Toast from '../utility/Toast.vue'
 
 const store = useMainStore()
 const episodeList = ref(null)
@@ -43,6 +45,7 @@ onMounted(async () => {
   try {
     const data = await getData(SCHEDULE)
     episodeList.value = data
+    store.toastMessage = 'Schedule fetched successfully'
   } catch (e) {
     console.error(e)
   }
