@@ -1,7 +1,7 @@
-// stores/counter.spec.ts
+/* eslint-disable import/no-extraneous-dependencies */
 import { setActivePinia, createPinia } from 'pinia'
-import { useMainStore } from '../mainStore'
 import { beforeEach, describe, expect, it } from 'vitest'
+import { useMainStore } from '../mainStore'
 
 describe('Main Store', () => {
   beforeEach(() => {

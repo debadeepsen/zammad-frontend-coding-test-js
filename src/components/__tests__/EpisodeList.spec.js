@@ -1,7 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import EpisodeList from '../sections/EpisodeList.vue'
 import { createPinia, setActivePinia } from 'pinia'
+import EpisodeList from '../sections/EpisodeList.vue'
 
 describe('Episode List', () => {
   beforeEach(() => {
