@@ -1,7 +1,7 @@
 <template>
   <div
     v-bind:key="episode.id"
-    class="m-1 w-full md:w-[48%] lg:w-[49%] xl:w-[32%] flex flex-col lg:flex-row border bg-white rounded-md shadow-md"
+    class="m-1 w-full md:w-[48%] lg:w-[49%] xl:w-[32%] min-[1900px]:w-[24%] flex flex-col lg:flex-row border bg-white rounded-md shadow-md"
   >
     <div class="flex justify-center lg:justify-left">
       <img

@@ -4,7 +4,10 @@
       <div
         v-show="toastMessage !== null"
         class="w-fit mx-auto p-4 shadow-lg rounded-lg"
-        v-bind:class="`bg-${toastColor}-200 text-${toastColor}-700`"
+        v-bind:style="{
+          'background-color':
+            store.toastMessage?.type === 'success' ? '#86efac' : '#fda4af',
+        }"
       >
         {{ toastMessage?.text }}
       </div>
@@ -13,16 +16,12 @@
 </template>
 
 <script setup>
-import { watch, computed } from 'vue'
+import { watch } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMainStore } from '../../store/mainStore'
 
 const store = useMainStore()
 const { toastMessage } = storeToRefs(store)
-
-const toastColor = computed(() =>
-  store.toastMessage?.type === 'success' ? 'green' : 'red',
-)
 
 watch(toastMessage, (curr) => {
   if (!curr) return

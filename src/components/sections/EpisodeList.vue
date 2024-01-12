@@ -1,6 +1,6 @@
 <template>
   <div class="py-4 w-full">
-    <div v-if="!!episodeList">
+    <div v-if="!!episodeList" class="w-fit mx-auto">
       <h1>Schedule for today</h1>
       <div class="w-[95%] mt-6 mx-auto flex flex-wrap">
         <EpisodeInfo
