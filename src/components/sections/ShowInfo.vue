@@ -72,6 +72,7 @@ watch(currentShowId, async (curr) => {
       text: 'Show information fetched successfully',
     }
   } catch (e) {
+    console.error(e)
     store.toastMessage = {
       type: 'error',
       text: 'Error trying to fetch show information',
