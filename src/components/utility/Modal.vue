@@ -1,5 +1,6 @@
 <template>
   <div
+    data-testid="modal"
     v-show="show"
     class="bg-zinc-600/70 fixed left-0 top-0 w-screen h-screen z-[100] flex justify-center items-center"
     v-on:click="() => $emit('close')"

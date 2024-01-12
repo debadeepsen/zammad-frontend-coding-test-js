@@ -1,18 +1,17 @@
 <template>
-  <Transition name="fade">
-    <div class="fixed top-[10px] w-full z-[100]">
-      <div
-        v-show="toastMessage !== null"
-        class="w-fit mx-auto p-4 shadow-lg rounded-lg"
-        v-bind:style="{
-          'background-color':
-            store.toastMessage?.type === 'success' ? '#86efac' : '#fda4af',
-        }"
-      >
-        {{ toastMessage?.text }}
-      </div>
+  <div class="fixed top-[10px] w-full z-[100]">
+    <div
+      data-testid="toast"
+      v-show="toastMessage !== null"
+      class="w-fit mx-auto p-4 shadow-lg rounded-lg"
+      v-bind:style="{
+        'background-color':
+          store.toastMessage?.type === 'success' ? '#86efac' : '#fda4af',
+      }"
+    >
+      {{ toastMessage?.text }}
     </div>
-  </Transition>
+  </div>
 </template>
 
 <script setup>
